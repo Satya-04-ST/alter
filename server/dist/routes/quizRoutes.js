@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const quizController_1 = require("../controllers/quizController");
+const authMiddleware_1 = require("../middlewares/authMiddleware");
+const router = (0, express_1.Router)();
+router.use(authMiddleware_1.authenticateJwt);
+router.post('/generate', (req, res, next) => quizController_1.quizController.generateQuiz(req, res, next));
+router.get('/', (req, res, next) => quizController_1.quizController.getQuizzes(req, res, next));
+router.get('/:id', (req, res, next) => quizController_1.quizController.getQuizById(req, res, next));
+router.post('/:id/attempt', (req, res, next) => quizController_1.quizController.submitAttempt(req, res, next));
+router.get('/:id/attempts', (req, res, next) => quizController_1.quizController.getAttempts(req, res, next));
+exports.default = router;

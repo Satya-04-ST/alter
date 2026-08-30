@@ -1,0 +1,8 @@
+
+Document: BFT Consensus in Large Scale Swarm Robotics
+Abstract:
+We present a novel Byzantine Fault Tolerant protocol specifically designed for multi-agent swarm robotics operating under lossy wireless channels.
+Section 1: Quorum Formulations and Safety Guarantees.
+In a swarm with N agents, Byzantine fault tolerance requires at least 3F + 1 nodes to tolerate F Byzantine faulty agents. The quorum size Q is bounded by 2F + 1.
+Section 2: Latency Analysis and State Machine Replication.
+Under nominal network conditions, consensus completes in 2 round-trip times (RTT) with linear message complexity O(N).

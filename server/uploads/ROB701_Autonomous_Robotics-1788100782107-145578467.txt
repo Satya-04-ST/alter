@@ -1,0 +1,10 @@
+
+Course Code: ROB701 - Distributed Autonomous Robotics & Swarm Intelligence
+Module 1: Decentralized Consensus and Multi-Agent Coordination.
+Leader election, Paxos and Raft protocols adapted for unreliable wireless ad-hoc robotics swarms.
+Module 2: Real-time Distributed State Estimation and Sensor Fusion.
+Extended Kalman Filters (EKF), particle filters, and distributed SLAM over ROS2 and DDS middleware.
+Module 3: Motion Planning & Collision Avoidance in Multi-Robot Systems.
+RRT* algorithms, Velocity Obstacles (VO), and Model Predictive Control (MPC) with energy constraints.
+Module 4: Fault Tolerance and Safety Verification in Autonomous Systems.
+Byzantine fault tolerance in physical actuators, watchdogs, safety invariants, and Formal Methods verification.

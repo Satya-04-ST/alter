@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const studySessionController_1 = require("../controllers/studySessionController");
+const authMiddleware_1 = require("../middlewares/authMiddleware");
+const router = (0, express_1.Router)();
+router.use(authMiddleware_1.authenticateJwt);
+router.post('/sessions', (req, res, next) => studySessionController_1.studySessionController.logSession(req, res, next));
+router.get('/stats', (req, res, next) => studySessionController_1.studySessionController.getStats(req, res, next));
+exports.default = router;

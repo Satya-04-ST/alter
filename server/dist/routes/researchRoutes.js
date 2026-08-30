@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const researchController_1 = require("../controllers/researchController");
+const authMiddleware_1 = require("../middlewares/authMiddleware");
+const router = (0, express_1.Router)();
+router.use(authMiddleware_1.authenticateJwt);
+router.post('/synthesize', (req, res, next) => researchController_1.researchController.synthesizeStudyGuide(req, res, next));
+router.post('/paper-analysis', (req, res, next) => researchController_1.researchController.analyzePaperAndGraph(req, res, next));
+router.get('/graph', (req, res, next) => researchController_1.researchController.analyzePaperAndGraph(req, res, next));
+exports.default = router;

@@ -1,0 +1,22 @@
+{
+  "name": "alter-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ALTER - AI Academic Workspace & Multi-Persona Orchestrator",
+  "scripts": {
+    "dev": "concurrently -k -n \"CLIENT,SERVER\" -c \"cyan,magenta\" \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "build": "npm run build --prefix server && npm run build --prefix client",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "test:phase1": "node server/scripts/test-phase1.js",
+    "test:phase2": "node server/scripts/test-phase2.js",
+    "test:phase3": "node server/scripts/test-phase3.js",
+    "test:phase4": "node server/scripts/test-phase4.js",
+    "test:phase5": "node server/scripts/test-phase5.js",
+    "test:all": "node server/scripts/test-all-phases.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

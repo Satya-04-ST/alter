@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const aggregatorController_1 = require("../controllers/aggregatorController");
+const authMiddleware_1 = require("../middlewares/authMiddleware");
+const router = (0, express_1.Router)();
+router.use(authMiddleware_1.authenticateJwt);
+router.get('/hackathons', (req, res, next) => aggregatorController_1.aggregatorController.getHackathons(req, res, next));
+router.get('/arxiv', (req, res, next) => aggregatorController_1.aggregatorController.searchArxiv(req, res, next));
+exports.default = router;

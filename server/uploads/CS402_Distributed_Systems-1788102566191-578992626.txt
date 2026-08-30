@@ -1,0 +1,10 @@
+
+Course Code: CS402 - Distributed Systems & Cloud Computing
+Module 1: Principles of Distributed Architectures, RPCs, and Fault Tolerance.
+Overview of consensus algorithms including Raft and Paxos, distributed transaction commit protocols (2PC/3PC).
+Module 2: Scalable Storage and Key-Value Systems.
+Consistent hashing, Dynamo architecture, replication models, vector clocks, and eventual consistency.
+Module 3: Large-scale Stream Processing and Microservices.
+Kafka message queues, event sourcing, CQRS, Docker containerization, Kubernetes orchestration, and gRPC communication.
+Module 4: Security, Access Control & Resilient System Design.
+OAuth2, Zero Trust networking, MTLS, distributed tracing with OpenTelemetry, rate limiting, and circuit breakers.
