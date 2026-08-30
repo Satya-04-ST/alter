@@ -4,20 +4,20 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '../../../store/authStore';
-import { Lock, Mail, User, Target, GraduationCap, ArrowRight, AlertCircle, Loader2 } from 'lucide-react';
+import { Lock, Mail, User, Target, GraduationCap, ArrowRight, AlertCircle, Loader2, Sparkles } from 'lucide-react';
 
 export default function RegisterPage() {
   const router = useRouter();
-  const { register, isLoading, error, clearError } = useAuthStore();
+  const { register, loginDemoUser, isLoading, error, clearError } = useAuthStore();
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    targetRole: 'AI Systems Architect',
-    degreeName: 'B.Tech in Computer Science & AI',
-    currentSemester: 4,
-    gpa: 3.8,
+    name: 'Dr. Alex Vance',
+    email: 'scholar@alter.edu',
+    password: 'demo1234!',
+    targetRole: 'Senior AI Systems & Distributed Architect',
+    degreeName: 'B.Tech in Computer Science & AI (Hons.)',
+    currentSemester: 6,
+    gpa: 3.94,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -37,11 +37,17 @@ export default function RegisterPage() {
     }
   };
 
+  const handleDemoAccess = () => {
+    clearError();
+    loginDemoUser();
+    router.push('/dashboard');
+  };
+
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-6 py-8">
       <div className="w-full max-w-xl my-auto">
         {/* Logo Card */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <div className="inline-flex w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-600 items-center justify-center font-extrabold text-2xl text-white shadow-xl shadow-cyan-500/25 mb-3">
             A
           </div>
@@ -52,9 +58,31 @@ export default function RegisterPage() {
         </div>
 
         {/* Glassmorphic Form Card */}
-        <div className="glass-panel p-8 rounded-3xl border border-slate-800 shadow-2xl backdrop-blur-xl relative overflow-hidden">
+        <div className="glass-panel p-8 rounded-3xl border border-slate-800 shadow-2xl backdrop-blur-xl relative overflow-hidden space-y-5">
+          {/* Instant Demo Scholar Access Banner */}
+          <button
+            type="button"
+            onClick={handleDemoAccess}
+            className="w-full p-3.5 rounded-2xl bg-gradient-to-r from-cyan-500/20 via-indigo-500/20 to-purple-500/20 border border-cyan-500/40 hover:border-cyan-400 text-cyan-200 text-xs font-mono font-semibold flex items-center justify-between shadow-lg shadow-cyan-500/10 transition-all transform hover:-translate-y-0.5 group"
+          >
+            <div className="flex items-center gap-2 text-left">
+              <Sparkles className="w-4 h-4 text-cyan-400 animate-spin" />
+              <div>
+                <div className="font-bold text-white group-hover:text-cyan-300">⚡ Instant Demo Access</div>
+                <div className="text-[10px] text-slate-400">Explore full workspace with pre-seeded data</div>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 transition-transform" />
+          </button>
+
+          <div className="flex items-center gap-3 text-slate-600 text-xs font-mono">
+            <div className="flex-1 h-px bg-slate-800" />
+            <span>or create custom profile</span>
+            <div className="flex-1 h-px bg-slate-800" />
+          </div>
+
           {error && (
-            <div className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-start gap-3 text-rose-300 text-sm">
+            <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-start gap-3 text-rose-300 text-sm">
               <AlertCircle className="w-5 h-5 flex-shrink-0 text-rose-400" />
               <div>{error}</div>
             </div>

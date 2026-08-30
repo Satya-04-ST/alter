@@ -38,7 +38,24 @@ interface AuthState {
   logout: () => void;
   updateProfile: (data: Partial<UserProfile>) => Promise<boolean>;
   clearError: () => void;
+  loginDemoUser: () => boolean;
 }
+
+const MOCK_SCHOLAR_USER: UserProfile = {
+  id: 'usr_demo_scholar_2026',
+  email: 'scholar@alter.edu',
+  name: 'Dr. Alex Vance',
+  targetRole: 'Senior AI Systems & Distributed Architect',
+  degreeName: 'B.Tech in Computer Science & AI (Hons.)',
+  currentSemester: 6,
+  gpa: 3.94,
+  role: 'STUDENT',
+  _count: {
+    documents: 3,
+    courses: 4,
+    tasks: 6,
+  },
+};
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
@@ -159,4 +176,20 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   },
 
   clearError: () => set({ error: null }),
+
+  loginDemoUser: () => {
+    const mockToken = 'mock_alter_jwt_token_scholar_2026';
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('alter_token', mockToken);
+      localStorage.setItem('alter_user', JSON.stringify(MOCK_SCHOLAR_USER));
+    }
+    set({
+      user: MOCK_SCHOLAR_USER,
+      token: mockToken,
+      isAuthenticated: true,
+      isLoading: false,
+      error: null,
+    });
+    return true;
+  },
 }));
