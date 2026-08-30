@@ -38,8 +38,8 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 py-12">
-      <div className="w-full max-w-xl">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center p-4 sm:p-6 py-8">
+      <div className="w-full max-w-xl my-auto">
         {/* Logo Card */}
         <div className="text-center mb-8">
           <div className="inline-flex w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-600 items-center justify-center font-extrabold text-2xl text-white shadow-xl shadow-cyan-500/25 mb-3">

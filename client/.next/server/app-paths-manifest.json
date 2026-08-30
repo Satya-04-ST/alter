@@ -1,3 +1,10 @@
 {
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/page": "app/page.js",
+  "/(auth)/register/page": "app/(auth)/register/page.js",
+  "/(workspace)/dashboard/page": "app/(workspace)/dashboard/page.js",
+  "/(workspace)/planner/page": "app/(workspace)/planner/page.js",
+  "/(workspace)/reader/page": "app/(workspace)/reader/page.js",
+  "/(workspace)/research/page": "app/(workspace)/research/page.js"
 }
