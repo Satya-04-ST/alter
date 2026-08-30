@@ -55,7 +55,7 @@ ALTER unifies academic knowledge ingestion, multi-persona AI guidance, conflict-
 ### 2. Installation
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/alter.git
+git clone https://github.com/Satya-04-ST/alter.git
 cd ALTER
 
 # Install all dependencies across root, server, and client
