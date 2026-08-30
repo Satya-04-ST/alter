@@ -7,10 +7,16 @@ exports.initializeRedis = exports.redisClient = exports.isRedisConnected = void 
 const ioredis_1 = __importDefault(require("ioredis"));
 const env_1 = require("./env");
 exports.isRedisConnected = false;
+const cleanHost = (env_1.env.REDIS_HOST || 'localhost')
+    .replace(/^https?:\/\//, '')
+    .replace(/^rediss?:\/\//, '')
+    .split(':')[0];
+const isTlsRequired = cleanHost.includes('upstash.io') || cleanHost.includes('rediss');
 exports.redisClient = new ioredis_1.default({
-    host: env_1.env.REDIS_HOST,
-    port: env_1.env.REDIS_PORT,
+    host: cleanHost,
+    port: env_1.env.REDIS_PORT || 6379,
     password: env_1.env.REDIS_PASSWORD || undefined,
+    tls: isTlsRequired ? { rejectUnauthorized: false } : undefined,
     maxRetriesPerRequest: null,
     enableReadyCheck: false,
     retryStrategy(times) {
